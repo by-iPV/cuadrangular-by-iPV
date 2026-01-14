@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Bracket Black & Gold – Versión Excel Perfecta</title>
+
+<style>
+
+/* ----------------------------------------------------------
+   ESTILOS BASE (NO MODIFICADOS)
+-----------------------------------------------------------*/
+
+body {
+    background: #000;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #FBB400;
+    font-size: 38px;
+    font-weight: 900;
+    text-shadow: 0 0 15px #FBB400;
+    margin-top: 25px;
+}
+
+h6 {
+    color: #FBB400;
+    font-size: 12px;
+    font-weight: 900;
+    text-shadow: 0 0 15px #FBB400;
+    margin-top: 25px;
+}
+
+/* Tarjeta de partido (no modificada) */
+.match-box {
+    background: #111;
+    border: 3px solid #FBB400;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 0 22px #FBB40080;
+    text-align: center;
+    font-size: 17px;
+}
+
+/* Línea del bracket */
+.bracket-line {
+    border-color: #FBB400;
+}
+
+
+/* ----------------------------------------------------------
+   CAMBIANDO EXACTAMENTE, SIN REEMPLAZAR TARJETAS
+   GRID TIPO EXCEL: 7 columnas, 15 filas
+-----------------------------------------------------------*/
+.bracket-container {
+    display: grid;
+    grid-template-columns:
+        400px   /* Col 1 – Semifinales */
+        40px    /* Col 2 – línea */
+        40px    /* Col 3 – línea */
+        400px;  /* Col 4 – Final */
+    grid-template-rows: repeat(15, 45px);
+    gap: 0;
+    width: 1200px;
+    margin: 40px auto;
+}
+
+    .match-title {
+        font-weight: bold;
+        margin-bottom: 24px;
+        color: #FBB400;
+        text-shadow: 0 0 6px rgba(251,180,0,0.8);
+    }
+
+    .icon {
+        font-size: 18px;
+        margin-right: 6px;
+        color: #FFD978;
+    }
+
+    .team-line {
+        padding: 4px 0;
+		margin-bottom: 24px;
+        border-bottom: 1px solid #333;
+        color: #FFF;
+    }
+
+    .meta {
+        font-size: 13px;
+        margin-top: 6px;
+        color: #FFD978;
+    }
+
+/* ----------------------------------------------------------
+   BRACKETS – estilo Excel
+-----------------------------------------------------------*/
+
+/* Línea vertical simple */
+.line-vertical {
+    border-right: 3px solid #FBB400;
+    width: 100%;
+    height: 100%;
+}
+
+/* Línea horizontal simple */
+.line-horizontal {
+    border-top: 3px solid #FBB400;
+    width: 100%;
+    height: 100%;
+}
+
+/* Línea en L (cuartos → semifinales) */
+.line-corner-right {
+    border-right: 3px solid #FBB400;
+    border-top: 3px solid #FBB400;
+}
+
+.line-corner-left {
+    border-left: 3px solid #FBB400;
+    border-top: 3px solid #FBB400;
+}
+
+</style>
+</head>
+
+<body>
+<h1>1er Cuadrangular Voleibol Tixkokob 2026</h1>
+<h6>by iPV</h6>
+
+
+<div class="bracket-container">
+
+<!-- ========================================================
+     SEMIFINALES (COLUMN 4)
+======================================================== -->
+
+<!-- Semifinal 1: filas 3–4 -->
+<div class="match-box" style="grid-column:1; grid-row:1 / 5;">
+            <div class="match-title"><span class="icon">🏐</span>Semifinal 1</div>
+            <div class="team-line">Ganador P1 vs Ganador P2</div>
+            <div class="meta">Fecha: ___ | Hora: ___ | Marcador: ___</div>
+</div>
+
+<!-- Semifinal 2: filas 11–12 -->
+<div class="match-box" style="grid-column:1; grid-row:9 / 13;">
+            <div class="match-title"><span class="icon">🏐</span>Semifinal 2</div>
+            <div class="team-line">Ganador P3 vs Ganador P4</div>
+            <div class="meta">Fecha: ___ | Hora: ___ | Marcador: ___</div>
+</div>
+
+
+
+<!-- ========================================================
+     BRACKETS SEMIFINALES → FINAL (COLUMNAS 5–6)
+======================================================== -->
+
+<!-- Horizontal hacia semis -->
+<div class="line-horizontal" style="grid-column:2; grid-row:3;"></div>
+<!-- Vertical de P1 (fila 4) -->
+<div class="line-vertical" style="grid-column:2; grid-row:3;"></div>
+<!-- Vertical de P1 (fila 4) -->
+<div class="line-vertical" style="grid-column:2; grid-row:4;"></div>
+<!-- Vertical de P1 (fila 5) -->
+<div class="line-vertical" style="grid-column:2; grid-row:5;"></div>
+<!-- Vertical de P1 (fila 6) -->
+<div class="line-vertical" style="grid-column:2; grid-row:6;"></div>
+<!-- Vertical de P1 (fila 7) -->
+<div class="line-vertical" style="grid-column:2; grid-row:7;"></div>
+<!-- Horizontal hacia semis -->
+<div class="line-horizontal" style="grid-column:3; grid-row:7;"></div>
+<!-- Vertical de P1 (fila 4) -->
+<div class="line-vertical" style="grid-column:2; grid-row:8;"></div>
+<!-- Vertical de P1 (fila 5) -->
+<div class="line-vertical" style="grid-column:2; grid-row:9;"></div>
+<!-- Vertical de P1 (fila 5) -->
+<div class="line-vertical" style="grid-column:2; grid-row:10;"></div>
+<!-- Horizontal hacia semis -->
+<div class="line-horizontal" style="grid-column:2; grid-row:11;"></div>
+
+<!-- ========================================================
+     FINAL (COLUMN 7 – filas 7–8)
+======================================================== -->
+
+<div class="match-box" style="grid-column:4; grid-row:5 / 9;">
+            <div class="match-title"><span class="icon">🏆</span>Final</div>
+            <div class="team-line">Ganador S1 vs Ganador S2</div>
+            <div class="meta">Fecha: ___ | Hora: ___ | Marcador: ___</div>
+</div>
+
+
+
+<!-- ========================================================
+     PARTIDO POR 3ER LUGAR (COLUMN 7 – filas 14–15)
+======================================================== -->
+
+<div class="match-box" style="grid-column:4; grid-row:12 / 16;">
+                <div class="match-title"><span class="icon">🥉</span>3er Lugar</div>
+                <div class="team-line">Perdedor S1 vs Perdedor S2</div>
+                <div class="meta">Fecha: ___ | Hora: ___ | Marcador: ___</div>
+</div>
+
+
+</div> <!-- grid -->
+
+</body>
+</html>
