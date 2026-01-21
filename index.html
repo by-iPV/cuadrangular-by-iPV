@@ -279,6 +279,10 @@ h6 {
 
 <body>
 <h1 id="eventTitle">Evento fuera de línea</h1>
+<h1 id="J1">Jornada 1</h1>
+<h1 id="J2">Jornada 2</h1>
+<h1 id="J3">Jornada 3</h1>
+<h1 id="J4">Jornada 4</h1>
 <h6>by iPV</h6>
 
 
@@ -516,7 +520,14 @@ function loadBracket(url) {
       const date    = row.c[5]?.v || "";
       const time    = row.c[6]?.v || "";
       
-	  
+          // 🔹 INYECTAR Jornadas por jugar EN EL BODY
+          const Jor1 = document.getElementById("J1");
+          if (Jor1 && Jornada) {
+            Jor1.textContent = Jornada;
+          }
+
+          // 🔹 CONTINUAR FLUJO NORMAL	 
+		  
 	  const IdMatch = `${matchId)-${Jornada}`;
 
       const card = document.querySelector(`[data-match="${IdMatch}"]`);
