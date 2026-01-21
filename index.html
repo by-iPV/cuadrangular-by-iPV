@@ -318,7 +318,7 @@ h6 {
 <div class="match-box" data-match="Jornada-2" style="grid-column:1; grid-row:9 / 13;">
 
   <div class="match-title">
-    <span class="icon">🏐</span> Semifinal 1
+    <span class="icon">🏐</span> Semifinal 2
   </div>
 
   <div class="team-line">
@@ -509,13 +509,17 @@ function loadBracket(url) {
 
     rows.forEach(row => {
       const matchId = row.c[0]?.v;
-      const team1   = row.c[1]?.v || "";
-      const team2   = row.c[2]?.v || "";
-      const date    = row.c[3]?.v || "";
-      const time    = row.c[4]?.v || "";
-      const score   = row.c[5]?.v || "";
+	  const Jornada = row.c[1]?.v || "";
+      const team1   = row.c[2]?.v || "";
+      const team2   = row.c[3]?.v || "";
+	  const score   = row.c[4]?.v || "";
+      const date    = row.c[5]?.v || "";
+      const time    = row.c[6]?.v || "";
+      
+	  
+	  const IdMatch = matchId + "-" + Jornada;
 
-      const card = document.querySelector(`[data-match="${matchId}"]`);
+      const card = document.querySelector(`[data-match="${IdMatch}"]`);
       if (!card) return;
 
       card.querySelector(".team1").textContent = team1;
