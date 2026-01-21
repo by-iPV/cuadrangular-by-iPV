@@ -518,7 +518,8 @@ function loadBracket(url) {
 
     if (rows.length === 0) {
       alert("⚠️ La pestaña Bracket está vacía o no se leyó correctamente");  
-  
+	}
+		
     const json = JSON.parse(text.substring(47).slice(0, -2));
     const rows = json.table.rows;
 
