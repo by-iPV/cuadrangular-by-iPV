@@ -315,6 +315,8 @@ h6 {
     Fecha: ___ | Hora: ___ | Marcador: ___
   </div>
 
+	console.log("✏️ Inyectado:", team1, "vs", team2);
+
 </div>
 
 
@@ -523,7 +525,12 @@ function loadBracket(url) {
     const json = JSON.parse(text.substring(47).slice(0, -2));
     const rows = json.table.rows;
 
-    rows.forEach(row => {
+    rows.forEach((row, index) => {
+		
+		console.log(`➡️ Fila ${index + 1} completa:`, row.c);
+	
+	
+	
       const matchId = row.c[0]?.v;
 	  const Jornada = row.c[1]?.v || "";
       const team1   = row.c[2]?.v || "";
@@ -531,6 +538,8 @@ function loadBracket(url) {
 	  const score   = row.c[4]?.v || "";
       const date    = row.c[5]?.v || "";
       const time    = row.c[6]?.v || "";
+	  
+		console.log("🆔 matchId:", matchId, "| Jornada:", Jornada);
       
           // 🔹 INYECTAR Jornadas por jugar EN EL BODY
           const Jor1 = document.getElementById("J1");
@@ -542,13 +551,24 @@ function loadBracket(url) {
 		  
 	  const IdMatch = `${matchId)-${Jornada}`;
 
-      const card = document.querySelector(`[data-match="${IdMatch}"]`);
-      if (!card) return;
-
+      const card = document.querySelector(`[data-match="${matchId}"]`);
+      if (!card) {
+		  console.warn("❌ No se encontró tarjeta para data-match =", matchId);
+		  return;
+		}
+		
+		console.log("✅ Tarjeta encontrada para:", matchId);
+		
       card.querySelector(".team1").textContent = team1;
       card.querySelector(".team2").textContent = team2;
       card.querySelector(".meta").textContent =
         `Fecha: ${date} | Hora: ${time} | Marcador: ${score}`;
+		
+		alert(`Fila leída:
+		Match: ${matchId}
+		${team1} vs ${team2}`);
+		
+		
     });
   });
 </script>
