@@ -508,6 +508,17 @@ function loadBracket(url) {
   fetch(url)
   .then(res => res.text())
   .then(text => {
+  
+    console.log("📄 Respuesta cruda GViz recibida");
+
+    const json = JSON.parse(text.substring(47).slice(0, -2));
+    const rows = json.table.rows;
+
+    console.log("📊 Total de filas leídas en Bracket:", rows.length);
+
+    if (rows.length === 0) {
+      alert("⚠️ La pestaña Bracket está vacía o no se leyó correctamente");  
+  
     const json = JSON.parse(text.substring(47).slice(0, -2));
     const rows = json.table.rows;
 
