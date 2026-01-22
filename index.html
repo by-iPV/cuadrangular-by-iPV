@@ -514,7 +514,7 @@ function loadBracket(url) {
     console.log("📄 Respuesta cruda GViz recibida");
 
     const jsonBracket = JSON.parse(text.substring(47).slice(0, -2));
-    const rowsBracket = json.table.rows;
+    const rowsBracket = jsonBracket.table.rows;
 
     console.log("📊 Total de filas leídas en Bracket:", rowsBracket.length);
 
@@ -566,12 +566,12 @@ function loadBracket(url) {
 		${team1} vs ${team2}`);
 		
 		
-    };
-  }
+    });
+  })
   .catch(err => {
       console.error("❌ Error cargando Bracket:", err);
-    }
-  );
+  });
+}
 </script>
 
 <script>
