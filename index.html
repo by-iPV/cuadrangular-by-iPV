@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<title>2° Cuadrangular Voleibol Tixkokob 2026</title>
+<title>1er Cuadrangular Voleibol Tixkokob 2026</title>
 
 <style>
 
@@ -29,7 +29,7 @@ h1 {
 
 h6 {
     color: #FBB400;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 900;
     text-shadow: 0 0 15px #FBB400;
     margin-top: 25px;
@@ -101,9 +101,10 @@ h6 {
     }
 
     .meta {
-        font-size: 13px;
-        margin-top: 6px;
+        font-size: 17px;
+        margin-top: 0px;
         color: #FFD978;
+		font-weight: bold;
     }
 	
     .score-match-title {
@@ -274,7 +275,7 @@ h6 {
     border: none;
 }
 
-<style>
+
 /* ================================
    Fondo Institucional iPV
    ================================ */
@@ -333,16 +334,32 @@ body {
     gap: 16px;
 }
 
+/* ================================
+   BOTÓN LIVE CONTROLADO (ATG)
+   ================================ */
+
 .live-link{
     color: #FBB400;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 14px;              /* ← Tamaño fijo */
     text-decoration: none;
+
     border: 1px solid #FBB400;
-    padding: 4px 10px;
+    padding: 4px 12px;            /* ← Control de ancho */
     border-radius: 6px;
 
-    transition: all .2s ease;
+    max-width: 140px;             /* ← Límite visual */
+    text-align: center;
+
+    white-space: nowrap;         /* ← Evita saltos */
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition: background .2s ease,
+                color .2s ease,
+                box-shadow .2s ease;
 }
+
 
 .live-link:hover{
     background:#FBB400;
@@ -360,29 +377,166 @@ body {
 }
 
 @keyframes pulse{
-    0%{
-        opacity:.6;
-        transform: scale(1);
-    }
-    50%{
-        opacity:1;
-        transform: scale(1.05);
-    }
-    100%{
-        opacity:.6;
-        transform: scale(1);
-    }
+    0%{opacity:.6;}
+    50%{opacity:1;}
+    100%{opacity:.6;}
 }
 
+/* ================================
+   BOTÓN ID PARTIDO
+   ================================ */
 
-</style>
-1
+.match-id-btn{
+    background: transparent;
+    border: 1px solid #FBB400;
+
+    color: #FBB400;
+    font-size: 13px;
+    font-weight: 600;
+
+    padding: 4px 12px;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    max-width: 140px;
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition: all .2s ease;
+}
+
+.match-id-btn:hover{
+    background: #FBB400;
+    color: #000;
+}
+
+/* ================================
+   PANEL INFO LATERAL
+   ================================ */
+
+.match-info-panel{
+    position: fixed;
+
+    top: 0;
+    right: -320px;
+
+    width: 300px;
+    height: 100%;
+
+    background: rgba(0,0,0,0.95);
+
+    border-left: 2px solid #FBB400;
+
+    transition: right .3s ease;
+
+    z-index: 9999;
+}
+
+.match-info-panel.active{
+    right: 0;
+}
+
+.match-info-card{
+    padding: 20px;
+
+    color: #FBB400;
+}
+
+.match-info-card h3{
+    margin-bottom: 12px;
+}
+
+.match-info-card button{
+    margin-top: 16px;
+
+    background: transparent;
+    border: 1px solid #FBB400;
+
+    color: #FBB400;
+
+    padding: 6px 12px;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.match-info-card button:hover{
+    background: #FBB400;
+    color: #000;
+}
+
+/* ================================
+   Barra superior marcador
+   ================================ */
+
+.match-top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* Botón ID */
+
+.match-id-btn{
+    background: transparent;
+    border: 1px solid #FBB400;
+    color: #FBB400;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    transition: all .2s ease;
+}
+
+.match-id-btn:hover{
+    background:#FBB400;
+    color:#000;
+}
+
+/* LIVE */
+
+.live-link{
+    font-size: 14px;
+}
+
+/* ================================
+   Panel Actualización
+   ================================ */
+
+.update-panel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 6px;
+    padding: 4px 8px;
+
+    font-size: 0.85rem;
+    color: #F5F5F2;
+
+    opacity: 0.9;
+}
+
+.clock-now{
+    font-weight: bold;
+}
+
+.last-update{
+    color: #FBB400;
+    font-weight: 600;
+}
 
 </style>
 </head>
 
 <body>
-<h1 id="eventTitle">2° Cuadrangular Voleibol Tixkokob 2026</h1>
+<h1 id="eventTitle">1er Cuadrangular Voleibol Tixkokob 2026</h1>
 <h6>by iPV</h6>
 
 
@@ -391,30 +545,6 @@ body {
 <!-- ========================================================
      SEMIFINALES (COLUMN 4) Jornada-1 y Jornada-2
 ======================================================== -->
-<!-- Marcador Partido Actual: filas 1–3 -->
-<div id="marcador"
-     class="score-match-box"
-     data-match-id="Jornada-1-1"
-     style="grid-column:4; grid-row:1 / 3;">
-
-    <div class="live-panel">
-
-        <div class="score-marcador">
-            <span class="score-icon">🏐</span>
-            <span class="score">0:0</span>
-        </div>
-
-        <a class="live-link"
-           target="_blank"
-           style="display:none;">
-           ▶ Ver en vivo
-        </a>
-
-    </div>
-
-</div>
-
-
 <!-- Semifinal 1: filas 3–4 -->
 <div class="match-box" data-match="Jornada-1" data-match-id="Jornada-1-1" style="grid-column:1; grid-row:1 / 5;">
 
@@ -423,13 +553,13 @@ body {
   </div>
 
   <div class="team-line">
-    <span class="team1">Felipinos Preparatoria</span>
+    <span class="team1">Centinelas/Pretorianas by iPV</span>
     <span class="vs"> vs </span>
-    <span class="team2">Benjis Infantil</span>
+    <span class="team2">Felipinos Preparatoria</span>
   </div>
 
   <div class="meta">
-    Fecha: 31/Ene | Hora: 17:00 | Marcador: SIN COMENZAR
+    Fecha: 24/Ene | Hora: 17:00 | Marcador: 0 - 2
   </div>
 
 
@@ -444,13 +574,13 @@ body {
   </div>
 
   <div class="team-line">
-    <span class="team1">Benjis</span>
+    <span class="team1">Centinelas Prepa - CDK</span>
     <span class="vs"> vs </span>
-    <span class="team2">Legacy</span>
+    <span class="team2">Felipinos Secundaria</span>
   </div>
 
   <div class="meta">
-    Fecha: 31/Ene | Hora: 18:00 | Marcador: SIN COMENZAR
+    Fecha: 24/Ene | Hora: 18:00 | Marcador: 2 - 0
   </div>
 
 </div>
@@ -489,8 +619,11 @@ body {
 
 <div id="Final-4" class="match-box" style="grid-column:4; grid-row:5 / 9;">
             <div class="match-title"><span class="icon">🏆</span>Final</div>
-            <div class="team-line">Ganador J1 vs Ganador J2</div>
-            <div class="meta">Fecha: 31/Ene | Hora: 20:00 | Marcador: SIN COMENZAR</div>
+            <div class="team-line">Felipinos Preparatoria </span>
+			<span class="vs"> vs </span>
+			<span class="team2">Centinelas Prepa - CDK </span>
+			</div>
+            <div class="meta">Fecha: 24/Ene | Hora: 20:00 | Marcador: 0 - 2</div>
 </div>
 
 
@@ -501,8 +634,11 @@ body {
 
 <div id="Tercer-lugar-3" class="match-box" style="grid-column:4; grid-row:12 / 16;">
                 <div class="match-title"><span class="icon">🥉</span>3er Lugar</div>
-                <div class="team-line">Perdedor J1 vs Perdedor J2</div>
-                <div class="meta">Fecha: 31/Ene | Hora: 19:00 | Marcador: SIN COMENZAR</div>
+                <div class="team-line">Centinelas/Pretorianas by iPV </span>
+				<span class="vs"> vs </span>
+				<span class="team2">Felipinos Secundaria </span>
+				</div>
+                <div class="meta">Fecha: 24/Ene | Hora: 19:00 | Marcador: 2 - 0</div>
 </div>
 
 
@@ -552,6 +688,26 @@ body {
 	
   </div>
 </div>
+
+<!-- PANEL INFO PARTIDO -->
+<div id="match-info-panel" class="match-info-panel">
+
+    <div class="match-info-card">
+
+        <h3>Información del Partido</h3>
+
+        <p id="info-teams">
+            --
+        </p>
+
+        <button id="close-info">
+            Cerrar
+        </button>
+
+    </div>
+
+</div>
+
 
 <!-- GOOGLE SHEETS LOADER del Maestro del evento -->
 <script>
@@ -613,8 +769,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const LIVEINPUT_URL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=LiveInput`;
 
     /* === LLAMADAS EXISTENTES (NO LAS ROMPE) === */
-    loadBracket(BRACKET_URL);     // tu función actual
-    loadLiveInputFromURL(LIVEINPUT_URL); // overlay LIVE / ON-DEMAND
+    // loadBracket(BRACKET_URL);    //  tu función actual
+    // loadLiveInputFromURL(LIVEINPUT_URL); // overlay LIVE / ON-DEMAND
 
   });
 });
@@ -738,48 +894,139 @@ const LIVE_URL =
 const BRACKET_URL =
 "https://opensheet.elk.sh/1H7UgDZnPysrgo65u5_WD63tiuwSDPvFQCou5-BnpqXE/Bracket";
 
+// ===============================
+// CONTROL TIEMPO ACTUALIZACIÓN
+// ===============================
+
+let lastUpdateTimestamp = null;
+let lastRenderedScore = "";
+
+
 /* Cargar Marcador */
+/* ===============================
+   LOAD LIVE SCORE OPTIMIZADO
+   =============================== */
+
+let lastLiveState = {};
+
 async function loadLiveScore(){
 
-    const res = await fetch(LIVE_URL);
-    const data = await res.json();
+    try{
 
-    data.forEach(row => {
+        const res = await fetch(LIVE_URL);
+        const data = await res.json();
 
-        const id = row.match_id;
+        if(!Array.isArray(data)) return null;
 
-        const scoreA = row.score_a || "0";
-        const scoreB = row.score_b || "0";
-        const liveURL = row.live_url || "";
+        let currentSnapshot = {};
 
-        const card = document.querySelector(
-            `[data-match-id="${id}"]`
-        );
+        data.forEach(row => {
 
-        if(card){
+            const id = row.match_id;
+            if(!id) return;
 
-            card.querySelector(".score")
-                .textContent = `${scoreA} : ${scoreB}`;
+            const scoreA = row.score_a || "0";
+            const scoreB = row.score_b || "0";
+            const liveURL = row.live_url || "";
+            const status  = row.Estado || row.status || "";
+            const updatedAt = row.Actualizado || "";
 
-            const link = card.querySelector(".live-link");
+            const scoreText = `${scoreA}:${scoreB}`;
 
-			if(liveURL){
-				link.href = liveURL;
-				link.style.display = "inline-block";
+            // Hash ligero del partido
+            const hash = `${scoreText}|${status}|${liveURL}`;
 
-				// Activar modo LIVE
-				link.classList.add("live-active");
+            currentSnapshot[id] = hash;
 
-			} else {
-				link.style.display = "none";
+            // Comparar con estado previo
+            if(lastLiveState[id] === hash){
+                return; // ❌ No cambió → no tocar DOM
+            }
 
-				// Desactivar modo LIVE
-				link.classList.remove("live-active");
+            lastLiveState[id] = hash;
+
+            // ===============================
+            // Buscar tarjeta
+            // ===============================
+
+            const card = document.querySelector(
+                `[data-match-id="${id}"]`
+            );
+
+            if(!card) return;
+
+            // ===============================
+            // Actualizar marcador
+            // ===============================
+
+            const scoreEl = card.querySelector(".score");
+
+            if(scoreEl){
+                scoreEl.textContent = `${scoreA} : ${scoreB}`;
+            }
+
+            // ===============================
+            // Control LIVE
+            // ===============================
+
+			 const link =
+				card.querySelector(".live-link") ||
+				document.querySelector(`#marcador .live-link`);
+
+			if(!link){
+				console.warn("LIVE no encontrado para", id);
+				return;
 			}
 
-        }
-    });
+
+            if(status === "LIVE"){
+
+                link.style.display = "inline-block";
+                link.textContent = "EN VIVO";
+                link.classList.add("live-active");
+
+                if(liveURL && liveURL.trim() !== ""){
+                    link.href = liveURL;
+                    link.target = "_blank";
+                }else{
+                    link.removeAttribute("href");
+                }
+
+            }else{
+
+                link.style.display = "none";
+                link.classList.remove("live-active");
+                link.removeAttribute("href");
+
+            }
+
+            // ===============================
+            // Timestamp actualización
+            // ===============================
+
+            if(updatedAt){
+
+                const ts = new Date(updatedAt).getTime();
+
+                if(!isNaN(ts)){
+                    lastUpdateTimestamp = ts;
+                }
+
+            }
+
+        });
+
+        return currentSnapshot;
+
+    }catch(e){
+
+        console.error("Error loadLiveScore:", e);
+        return null;
+
+    }
+
 }
+
 
 
 /* Cargar Bracket */
@@ -809,20 +1056,127 @@ async function loadBracket(){
     });
 }
 
+// ===============================
+// CONTROL DE CAMBIOS
+// ===============================
+let lastLiveHash = "";
 
-/* Auto refresco */
-function initDashboard(){
+// ===============================
+// LEER REFRESH DESDE GOOGLE SHEETS
+// ===============================
+async function getRefreshTime(){
 
-    loadLiveScore();
-    loadBracket();
+    try{
 
-    setInterval(()=>{
-        loadLiveScore();
-        loadBracket();
-    }, 10000); // cada 10s
+        const url = "https://opensheet.elk.sh/1H7UgDZnPysrgo65u5_WD63tiuwSDPvFQCou5-BnpqXE/LiveInput";
+
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if(!data || !data.length){
+            return 1000; // default 1s
+        }
+
+        const refreshValue = data[0].Refresh;
+
+        const parsed = parseInt(refreshValue);
+
+        if(isNaN(parsed) || parsed < 500){
+            return 1000; // mínimo seguro
+        }
+
+        return parsed;
+
+    }catch(e){
+
+        console.warn("Refresh inválido, usando default", e);
+        return 1000;
+
+    }
+
+}
+
+// ===============================
+// CARGA CON VALIDACIÓN
+// ===============================
+async function refreshDashboard(){
+
+    const currentData = await loadLiveScore(true);
+    await loadBracket();
+
+    if(!currentData) return;
+
+    const hash = JSON.stringify(currentData);
+
+    if(hash === lastLiveHash){
+        return; // No cambió nada
+    }
+
+    lastLiveHash = hash;
+
+}
+
+
+// ===============================
+// AUTO REFRESCO DINÁMICO
+// ===============================
+async function initDashboard(){
+
+    // Primera carga
+    await refreshDashboard();
+
+    // Leer tiempo desde Sheets
+    const refreshTime = await getRefreshTime();
+
+    console.log("Refresh configurado:", refreshTime, "ms");
+
+    // Loop dinámico
+    setInterval(async ()=>{
+
+        await refreshDashboard();
+
+    }, refreshTime);
+
 }
 
 document.addEventListener("DOMContentLoaded", initDashboard);
+
+// ===============================
+// RELOJ + CONTADOR ACTUALIZACIÓN
+// ===============================
+
+function initClock(){
+
+    setInterval(()=>{
+
+        // Hora actual
+        const now = new Date();
+
+        const h = now.getHours().toString().padStart(2,"0");
+        const m = now.getMinutes().toString().padStart(2,"0");
+
+        const clock = document.getElementById("clock-now");
+
+        if(clock){
+            clock.textContent = `🕒 ${h}:${m}`;
+        }
+
+        // Tiempo desde última actualización
+        const last = document.getElementById("last-update");
+
+        if(last && lastUpdateTimestamp){
+
+            const diff = Math.floor(
+                (Date.now() - lastUpdateTimestamp)/1000
+            );
+
+            last.textContent = `Actualizado hace ${diff}s`;
+        }
+
+    },1000);
+
+}
+
 </script>
 
 
