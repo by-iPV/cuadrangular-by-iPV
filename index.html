@@ -741,10 +741,11 @@ function loadEventSheetId(callback) {
         const sheetId = row[2]?.v;          // Columna C: sheet_id
         const status = row[3]?.v;           // Columna D: status
 
+	  	// 🔹 INYECTAR NOMBRE DEL EVENTO EN EL BODY
+	  	const titleEl = document.getElementById("eventTitle");
+		  
         if (masterEventId === eventId && status === "active") {
 		
-          // 🔹 INYECTAR NOMBRE DEL EVENTO EN EL BODY
-          const titleEl = document.getElementById("eventTitle");
           if (titleEl && masterEventName) {
             titleEl.textContent = masterEventName;
           }
