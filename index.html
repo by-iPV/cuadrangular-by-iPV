@@ -750,22 +750,28 @@ function loadEventSheetId(callback) {
             titleEl.textContent = masterEventName;
           }
 
-          // 🔹 CONTINUAR FLUJO NORMAL		
-		
-          callback(sheetId);
-          return;
+          	// 🔹 CONTINUAR FLUJO NORMAL: de evento ACTIVO		
+			console.error("by iPV - sheetId encontrado en MASTER: " + sheetId);
+          	callback(sheetId);
+          	return;
         }
 		else {
 			if (masterEventId === eventId && status !== "active") {
 				// 🔹 INYECTAR "estatus" al NOMBRE DEL EVENTO EN EL BODY
-				titleEl.textContent = masterEventName + ' (' + status + ')';			
+				titleEl.textContent = masterEventName + ' (' + status + ')';
+
+          		// 🔹 CONTINUAR FLUJO NORMAL: de evento NO ACTIVO		
+				console.error("by iPV - sheetId encontrado en MASTER: " + sheetId);
+          		callback(sheetId);
+          		return;
+				
 			}
 
 			console.error("Evento se encontró en MASTER como: " + masterEventName + " (" + status + ")");
 		}		  
       }
 
-      console.error("Evento no encontrado o no activo en MASTER");
+      console.error("by iPV - Evento no encontrado o no activo en MASTER");
     });
 }
 </script>
@@ -774,13 +780,15 @@ function loadEventSheetId(callback) {
 document.addEventListener("DOMContentLoaded", () => {
   loadEventSheetId(sheetId => {
 
+	console.error("by iPV - Dato sheetId proviene de MASTER: " + sheetId);
+	  
     const BRACKET_URL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=Bracket`;
     const LIVEINPUT_URL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=LiveInput`;
 
     /* === LLAMADAS EXISTENTES (NO LAS ROMPE) === */
     loadBracket(BRACKET_URL);    //  tu función actual
     // loadLiveInputFromURL(LIVEINPUT_URL); // overlay LIVE / ON-DEMAND
-
+	
   });
 });
 </script>
@@ -788,10 +796,15 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- GOOGLE SHEETS LOADER del detalle del evento para los datos de la capa Bracket -->
 <script>
 function loadBracket(url) {
+
+	console.error("by iPV - ingresando a loadBracket con url proviente de MASTER: " + url);
+	
   fetch(url)
   .then(res => res.text())
   .then(text => {
-  
+
+	console.error("by iPV - url proviene de MASTER: " + url);
+	  
     console.log("📄 Respuesta cruda GViz recibida");
 
     const jsonBracket = JSON.parse(text.substring(47).slice(0, -2));
