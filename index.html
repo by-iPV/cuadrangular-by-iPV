@@ -754,6 +754,12 @@ function loadEventSheetId(callback) {
           callback(sheetId);
           return;
         }
+		else {
+			if (masterEventId === eventId && status !== "active") {
+				// 🔹 INYECTAR "estatus" al NOMBRE DEL EVENTO EN EL BODY
+				titleEl.textContent = masterEventName + ' (' + status + ')';			
+			}		
+		}		  
       }
 
       console.error("Evento no encontrado o no activo en MASTER");
