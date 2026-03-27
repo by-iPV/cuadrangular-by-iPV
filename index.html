@@ -723,8 +723,6 @@ function getEventFromURL() {
 }
 </script>
 
-
-
 <script>
 function loadEventSheetId(callback) {
   fetch(MASTER_URL)
@@ -751,7 +749,7 @@ function loadEventSheetId(callback) {
           }
 
           	// 🔹 CONTINUAR FLUJO NORMAL: de evento ACTIVO		
-			console.error("by iPV - sheetId encontrado en MASTER: " + sheetId);
+			console.error("by iPV - 1 sheetId ACTIVO encontrado en MASTER: " + sheetId);
           	callback(sheetId);
           	return;
         }
@@ -761,7 +759,7 @@ function loadEventSheetId(callback) {
 				titleEl.textContent = masterEventName + ' (' + status + ')';
 
           		// 🔹 CONTINUAR FLUJO NORMAL: de evento NO ACTIVO		
-				console.error("by iPV - sheetId encontrado en MASTER: " + sheetId);
+				console.error("by iPV - 1 sheetId NO ACTIVO encontrado en MASTER: " + sheetId);
           		callback(sheetId);
           		return;
 				
@@ -775,29 +773,12 @@ function loadEventSheetId(callback) {
     });
 }
 </script>
-<!-- Definiendo URL`s GOOGLE SHEETS del detalle del evento para pestañas Bracket y LiveInput -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  loadEventSheetId(sheetId => {
-
-	console.error("by iPV - Dato sheetId proviene de MASTER: " + sheetId);
-	  
-    const BRACKET_URL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=Bracket`;
-    const LIVEINPUT_URL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=LiveInput`;
-
-    /* === LLAMADAS EXISTENTES (NO LAS ROMPE) === */
-    loadBracket(BRACKET_URL);    //  tu función actual
-    // loadLiveInputFromURL(LIVEINPUT_URL); // overlay LIVE / ON-DEMAND
-	
-  });
-});
-</script>
 
 <!-- GOOGLE SHEETS LOADER del detalle del evento para los datos de la capa Bracket -->
 <script>
 function loadBracket(url) {
 
-	console.error("by iPV - ingresando a loadBracket con url proviente de MASTER: " + url);
+	console.error("by iPV - 3 ingresando a loadBracket con url proviente de MASTER: " + url);
 	
   fetch(url)
   .then(res => res.text())
@@ -866,6 +847,24 @@ function loadBracket(url) {
       console.error("❌ Error cargando Bracket:", err);
   });
 }
+</script>
+	
+<!-- Definiendo URL`s GOOGLE SHEETS del Master y del detalle del evento para pestañas Bracket y LiveInput -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  loadEventSheetId(sheetId => {
+
+	console.error("by iPV - 2 Dato sheetId proviene de MASTER: " + sheetId);
+	  
+    const BRACKET_URL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=Bracket`;
+    const LIVEINPUT_URL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=LiveInput`;
+
+    /* === LLAMADAS EXISTENTES (NO LAS ROMPE) === */
+    loadBracket(BRACKET_URL);    //  tu función actual
+    // loadLiveInputFromURL(LIVEINPUT_URL); // overlay LIVE / ON-DEMAND
+	
+  });
+});
 </script>
 
 <script>
