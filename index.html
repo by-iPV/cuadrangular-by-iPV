@@ -1048,35 +1048,6 @@ async function loadLiveScore(){
 
 }
 
-
-
-/* Cargar Bracket */
-async function loadBracket(){
-
-    const res = await fetch(BRACKET_URL);
-    const data = await res.json();
-
-    data.forEach(row => {
-
-        const id = row.id;
-
-        const card = document.querySelector(
-            `[data-bracket-id="${id}"]`
-        );
-
-        if(card){
-
-            card.querySelector(".teams")
-                .textContent =
-                `${row.equipo1} vs ${row.equipo2}`;
-
-            card.querySelector(".meta")
-                .textContent =
-                `Fecha: ${row.fecha} | Hora: ${row.hora} | ${row.Estado}`;
-        }
-    });
-}
-
 // ===============================
 // CONTROL DE CAMBIOS
 // ===============================
